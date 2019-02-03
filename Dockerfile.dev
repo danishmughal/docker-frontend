@@ -1,0 +1,12 @@
+FROM node:alpine
+
+WORKDIR '/app'
+
+COPY package.json .
+RUN npm install
+
+# Not really used because of volumes mounted from local code
+# Left in, may be useful in the future
+COPY . .
+
+CMD ["npm", "run", "start"]
