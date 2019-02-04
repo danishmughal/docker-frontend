@@ -1,0 +1,9 @@
+sudo: required
+services:
+  - docker
+
+before_install:
+  - docker build -t danishmughal/docker-frontend -f Dockerfile.dev .
+
+script:
+  - docker run danishmughal/docker-frontend npm run test -- --coverage
